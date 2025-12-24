@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthana × Cloud Driver - Resumen de Alianza</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-divider {
+            color: #d1d5db;
+            font-weight: 300;
+        }
+
+        .logo.secondary {
+            color: #6b7280;
+        }
+
+        .date {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        /* Title */
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        /* Card */
+        .card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            padding: 6px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li::before {
+            content: "→";
+            color: #059669;
+            font-size: 12px;
+        }
+
+        /* Team compact */
+        .team-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .team-member {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .member-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .member-role {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .member-highlight {
+            font-size: 11px;
+            color: #059669;
+            font-weight: 500;
+        }
+
+        /* Model */
+        .model-section {
+            background: #1a1a1a;
+            color: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .model-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .model-col h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #34d399;
+        }
+
+        .model-col p {
+            font-size: 13px;
+            color: #d1d5db;
+        }
+
+        /* Next steps */
+        .next-steps {
+            border: 2px solid #059669;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .next-steps h3 {
+            color: #059669;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: #059669;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            margin: 0 auto 8px;
+        }
+
+        .step-text {
+            font-size: 13px;
+        }
+
+        /* Contact */
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .contact-item {
+            font-size: 13px;
+        }
+
+        .contact-item strong {
+            color: #1a1a1a;
+        }
+
+        .contact-item a {
+            color: #059669;
+            text-decoration: none;
+        }
+
+        @media print {
+            body { -webkit-print-color-adjust: exact !important; }
+            .page { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="logos">
+                <span class="logo">anthana</span>
+                <span class="logo-divider">×</span>
+                <span class="logo secondary">Cloud Driver</span>
+            </div>
+            <span class="date">Propuesta de Alianza · Dic 2024</span>
+        </header>
+
+        <!-- Title -->
+        <h1 class="title">Partner técnico para Databricks</h1>
+        <p class="subtitle">Anthana aporta especialización en gobernanza de datos y Lakehouse. Cloud Driver aporta demanda y gestión comercial.</p>
+
+        <!-- Grid: What each brings -->
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">Cloud Driver aporta</div>
+                <ul>
+                    <li>26 años de relaciones enterprise</li>
+                    <li>Pipeline de 3,000+ contactos manufactura</li>
+                    <li>Proceso comercial probado</li>
+                    <li>Gestión de proyectos</li>
+                    <li>Facturación y cobranza</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title">Anthana aporta</div>
+                <ul>
+                    <li>Expertise técnico Databricks</li>
+                    <li>Experiencia Bimbo (33 países)</li>
+                    <li>Demos y pruebas de concepto</li>
+                    <li>Arquitectura e implementación</li>
+                    <li>Capacitación a clientes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-row">
+            <div class="team-member">
+                <div class="avatar">JC</div>
+                <div>
+                    <div class="member-name">Juan José Cardonal</div>
+                    <div class="member-role">Data Engineering Manager</div>
+                    <div class="member-highlight">Ex-Bimbo · 7 años en datos</div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="avatar">VG</div>
+                <div>
+                    <div class="member-name">Víctor Gallo</div>
+                    <div class="member-role">Business Development</div>
+                    <div class="member-highlight">Ex-Konfío · Ex-Globant</div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="avatar">CC</div>
+                <div>
+                    <div class="member-name">Carlos Cardona</div>
+                    <div class="member-role">Product & Implementation</div>
+                    <div class="member-highlight">Ex-Disney · iOS Lead</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model -->
+        <div class="model-section">
+            <div class="model-title">Modelo de trabajo</div>
+            <div class="model-grid">
+                <div class="model-col">
+                    <h4>Cloud Driver lidera</h4>
+                    <p>Generación de demanda, primer contacto, negociación comercial, contrato y facturación al cliente.</p>
+                </div>
+                <div class="model-col">
+                    <h4>Anthana ejecuta</h4>
+                    <p>Demos técnicas, diseño de arquitectura, implementación, soporte post-venta y capacitación.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>Próximos pasos</h3>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Firmar NDA y acuerdo de colaboración</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Reunión con Konfío como primer proyecto</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">Campaña de demanda manufactura (Enero)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact">
+            <div class="contact-item">
+                <strong>Víctor Gallo</strong> · <a href="mailto:victor@anthana.agency">victor@anthana.agency</a> · 477 908 3304
+            </div>
+            <div class="contact-item">
+                <strong>anthana.agency</strong> · Databricks Partner
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

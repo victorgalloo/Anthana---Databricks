@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthana Group | One-Pager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative elements */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,54,33,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,166,126,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #FF3621;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .partner-badge {
+            background: linear-gradient(135deg, #FF3621 0%, #FF6B35 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main sections */
+        .section {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF3621;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,54,33,0.5) 0%, transparent 100%);
+        }
+
+        /* Value proposition */
+        .value-prop {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .value-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Capabilities Grid */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .capability {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .capability-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .capability h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .capability ul {
+            list-style: none;
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .capability li {
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .capability li::before {
+            content: '›';
+            color: #FF3621;
+            font-weight: bold;
+        }
+
+        /* Experience */
+        .experience-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .exp-card {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .exp-logo {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .exp-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exp-info p {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Cloud support */
+        .clouds {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cloud-badge {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cloud-badge.expert {
+            border-color: #00A67E;
+        }
+
+        .cloud-badge .level {
+            font-size: 10px;
+            color: #00A67E;
+        }
+
+        /* Why us */
+        .differentiators {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .diff-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+        }
+
+        .diff-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FF3621;
+            margin-bottom: 5px;
+        }
+
+        .diff-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Team */
+        .team-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .team-member {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF3621 0%, #FF6B35 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .member-info h4 {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .member-info p {
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Contact */
+        .contact-bar {
+            background: linear-gradient(135deg, rgba(255,54,33,0.2) 0%, rgba(255,54,33,0.05) 100%);
+            border: 1px solid rgba(255,54,33,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-cta h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-cta p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-item {
+            text-align: right;
+        }
+
+        .contact-item .label {
+            font-size: 9px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item .value {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 10px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Print */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <div class="logo">ANTHANA<span>.</span></div>
+                <div class="tagline">Data Intelligence Partners</div>
+            </div>
+            <div class="partner-badge">🔶 Partner Databricks</div>
+        </header>
+
+        <!-- Value Proposition -->
+        <section class="section">
+            <div class="section-title">Propuesta de Valor</div>
+            <p class="value-prop">Transformamos empresas en organizaciones impulsadas por datos e inteligencia artificial.</p>
+            <p class="value-desc">
+                Especialistas en Databricks Data Intelligence Platform. Implementamos arquitecturas Lakehouse 
+                que unifican ingeniería de datos, analytics y machine learning bajo un solo plano de gobernanza. 
+                Experiencia comprobada en fintech y manufactura de clase mundial.
+            </p>
+        </section>
+
+        <!-- Capabilities -->
+        <section class="section">
+            <div class="section-title">Capacidades Técnicas</div>
+            <div class="capabilities-grid">
+                <div class="capability">
+                    <div class="capability-icon">⚡</div>
+                    <h3>Data Engineering</h3>
+                    <ul>
+                        <li>Apache Spark (PySpark, Scala, SQL)</li>
+                        <li>Delta Lake & Delta Live Tables</li>
+                        <li>Streaming estructurado en tiempo real</li>
+                        <li>Databricks Workflows</li>
+                    </ul>
+                </div>
+                <div class="capability">
+                    <div class="capability-icon">🔒</div>
+                    <h3>Gobernanza & Seguridad</h3>
+                    <ul>
+                        <li>Unity Catalog multi-cloud</li>
+                        <li>Linaje de datos automatizado</li>
+                        <li>Enmascaramiento dinámico PII</li>
+                        <li>Auditoría para compliance</li>
+                    </ul>
+                </div>
+                <div class="capability">
+                    <div class="capability-icon">🤖</div>
+                    <h3>Machine Learning & IA</h3>
+                    <ul>
+                        <li>MLflow lifecycle management</li>
+                        <li>Feature Store centralizado</li>
+                        <li>Model Serving en tiempo real</li>
+                        <li>Mosaic AI & GenAI empresarial</li>
+                    </ul>
+                </div>
+                <div class="capability">
+                    <div class="capability-icon">📊</div>
+                    <h3>Analytics & BI</h3>
+                    <ul>
+                        <li>Databricks SQL Serverless</li>
+                        <li>Motor Photon ultra-rápido</li>
+                        <li>Dashboards nativos</li>
+                        <li>Integración Tableau/Power BI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <div class="section-title">Experiencia Comprobada</div>
+            <div class="experience-row">
+                <div class="exp-card">
+                    <div class="exp-logo">🏭</div>
+                    <div class="exp-info">
+                        <h4>Grupo Bimbo</h4>
+                        <p>Gobernanza de datos internacional • Unity Catalog multi-país • Supply chain analytics</p>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-logo">💳</div>
+                    <div class="exp-info">
+                        <h4>Sector Fintech</h4>
+                        <p>Modelos de riesgo crediticio • Detección de fraude • Cumplimiento CNBV</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clouds -->
+        <section class="section">
+            <div class="section-title">Nubes Soportadas</div>
+            <div class="clouds">
+                <div class="cloud-badge expert">
+                    ☁️ AWS <span class="level">Experto</span>
+                </div>
+                <div class="cloud-badge expert">
+                    ☁️ Azure <span class="level">Experto</span>
+                </div>
+                <div class="cloud-badge">
+                    ☁️ GCP
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators -->
+        <section class="section">
+            <div class="section-title">¿Por qué Anthana?</div>
+            <div class="differentiators">
+                <div class="diff-item">
+                    <div class="diff-number">7+</div>
+                    <div class="diff-label">Años en datos</div>
+                </div>
+                <div class="diff-item">
+                    <div class="diff-number">33</div>
+                    <div class="diff-label">Países con Bimbo</div>
+                </div>
+                <div class="diff-item">
+                    <div class="diff-number">40%</div>
+                    <div class="diff-label">Reducción tiempo proyectos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="section">
+            <div class="section-title">Equipo Fundador</div>
+            <div class="team-row">
+                <div class="team-member">
+                    <div class="avatar">JJ</div>
+                    <div class="member-info">
+                        <h4>Juan José Cardonal</h4>
+                        <p>Head of Data Engineering • Ex-Bimbo</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">VG</div>
+                    <div class="member-info">
+                        <h4>Víctor Gallo</h4>
+                        <p>Business Development • Ex-Google</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">CC</div>
+                    <div class="member-info">
+                        <h4>Carlos Cardona</h4>
+                        <p>Product & UX • Ex-Disney</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <div class="contact-bar">
+                <div class="contact-cta">
+                    <h3>¿Listo para transformar tus datos?</h3>
+                    <p>Agenda una sesión de discovery sin costo</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="label">Web</div>
+                        <div class="value">anthana.agency</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="label">Email</div>
+                        <div class="value">hello@anthana.agency</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            Anthana Group © 2024 • Ciudad de México • Partner Oficial Databricks
+        </footer>
+    </div>
+</body>
+</html>
+
+
